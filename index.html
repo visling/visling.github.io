@@ -5,18 +5,15 @@
 	<title>Visual Linguistics</title>
 </head>
 <body style="background-color:#f0f0f5;">
-	<p>this is a hardcoded para</p>
-	<?php
-		$myfile = fopen("visuallinguistics.txt", "r") or die("Unable to open file!");
-		echo fread($myfile,filesize("visuallinguistics.txt"));
-		fclose($myfile);
-	?>
+	<div style="margin-left:100px;margin-top:100px;">
+		<p>this is a hardcoded para</p>
+	</div>
 </body>
 <script>
 	//test
 	var test = document.createElement("p");
 	test.textContent = "this is a test 5.0";
-	document.body.appendChild(test);
+	document.body.childNodes[0].appendChild(test);
 
 </script>
 </html>
