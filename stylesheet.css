@@ -2,14 +2,16 @@
 <style>
 body {
     background-color: #f0f0f5;
-    margin-left: 100px;
- 	margin-top: 50px;
 }
 
 h1 {
     color: blue;
     margin-left: 40px;
 } 
+
+p {
+	margin-left: 100px;
+}
 
 
 </style>
