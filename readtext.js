@@ -1,21 +1,15 @@
-function readText() {
-    paras = document.body.childNodes;
-    for (var i = 0; i < paras.length; i++) {
-        if (paras[i].nodeType == document.ELEMENT_NODE) {
-            var output = ""; //placeholder for text output
-            var filePath = paras[i].getAttribute("file")+".txt"
-            if(filePath.files[0]) {           
-                reader.onload = function (e) {
-                    output = e.target.result;
-                    displayContents(output);
-                    };//end onload()
-                reader.readAsText(filePath.files[0]);
-            }  
-        } 
+var script = document.createElement('script');
+script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+
+function entertext() {
+    $.get("visuallinguistics.txt", function(response)) {
+        var visling = response;
     }
+
+    var p = document.body.childNodes.getElementsById("visuallinguistics")
+    p.textContent = visling;
 }
 
-function displayContents(txt) {
-        var el = document.getElementById('visuallinguistics'); 
-        el.innerHTML = txt; //display output in DOM
-}
+entertext();
