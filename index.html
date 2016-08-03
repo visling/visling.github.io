@@ -6,30 +6,17 @@
 </head>
 <body style="background-color:#f0f0f5;">
 	<p>this is a hardcoded para</p>
+	<?php
+		$myfile = fopen("visuallinguistics.txt", "r") or die("Unable to open file!");
+		echo fread($myfile,filesize("visuallinguistics.txt"));
+		fclose($myfile);
+	?>
 </body>
 <script>
-	//add jQuery
-	var script = document.createElement('script');
-	script.src = '//code.jquery.com/jquery-1.11.0.min.js';
-	script.type = 'text/javascript';
-	document.getElementsByTagName('head')[0].appendChild(script);
-
 	//test
 	var test = document.createElement("p");
-	test.textContent = "this is a test 3.0";
+	test.textContent = "this is a test 4.0";
 	document.body.appendChild(test);
 
-	//readfile
-	var visling = ""
-	$.get("visuallinguistics", function(response) {
-    	visling = response;
-	});
-
-	var p = document.createElement("p")
-	p.className("kwiktext")
-	p.textContent =	visling
-	document.body.appendChild(p);
-
-	
 </script>
 </html>
