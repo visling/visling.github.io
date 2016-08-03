@@ -8,11 +8,26 @@
 	<p>this is a hardcoded para</p>
 </body>
 <script>
+	//add jQuery
+	var script = document.createElement('script');
+	script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
+	script.type = 'text/javascript';
+	document.getElementsByTagName('head')[0].appendChild(script);
+
+	//readfile
+	var visling = ""
+	$.get("visuallinguistics", function(response) {
+    	visling = response;
+	});
+
+	var p = document.createElement("p")
+	p.className("kwiktext")
+	p.textContent =	visling
+	document.body.appendChild(p);
+
+	//test
 	var test = document.createElement("p");
-	test.textContent = "this is a test";
+	test.textContent = "this is a test 2.0";
 	document.body.appendChild(test);
-	var button = document.createElement("button");
-	button.textContent = "test button"
-	document.body.appendChild(button);
 </script>
 </html>
