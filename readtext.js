@@ -14,4 +14,11 @@ function entertext() {
     document.body.appendChild(p);
 }
 
+function test() {
+    var test = document.createElement("p")
+    test.textContent = "this is a test"
+    document.body.appendChild(test);
+}
+
 entertext();
+test();
