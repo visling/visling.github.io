@@ -14,6 +14,11 @@
 	script.type = 'text/javascript';
 	document.getElementsByTagName('head')[0].appendChild(script);
 
+	//test
+	var test = document.createElement("p");
+	test.textContent = "this is a test 2.0";
+	document.body.appendChild(test);
+
 	//readfile
 	var visling = ""
 	$.get("visuallinguistics", function(response) {
@@ -25,9 +30,6 @@
 	p.textContent =	visling
 	document.body.appendChild(p);
 
-	//test
-	var test = document.createElement("p");
-	test.textContent = "this is a test 2.0";
-	document.body.appendChild(test);
+	
 </script>
 </html>
