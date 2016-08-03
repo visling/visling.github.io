@@ -8,8 +8,10 @@ function entertext() {
         var visling = response;
     }
 
-    var p = document.body.childNodes.getElementsById("visuallinguistics")
+    var p = document.createElement("p")
+    p.className = "kwik"
     p.textContent = visling;
+    document.body.appendChild(p);
 }
 
 entertext();
