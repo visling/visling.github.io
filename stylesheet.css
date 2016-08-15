@@ -1,12 +1,18 @@
 <head>
 <style>
 body {
-    background-color: #f0f0f5;
+    /*background-color: #f0f0f5;*/
+}
+
+button.homeButton {
+	margin-left: 80px;
+	margin-top: 40px;
 }
 
 h1 {
-    color: blue;
-    margin-left: 40px;
+    color: #0000e6;
+    margin-left: 80px;
+    margin-top: 70px;
 } 
 
 * {
@@ -22,34 +28,44 @@ h1 {
 
 }
 
-div {
-	margin-left: 100px
-	margin-top: 100px;
+div.text {
 	display: inline-block;
+	margin-left: 80px;
+	margin-right: 140px;
+
 }
 
-div.middle:hover >p{
-	background-color: #ff0066;
+div.divMaster {
+	display: flex;
+	justify-content: center;
+}
+
+div.divMiddle:hover > p{
 	color: white;
-
 }
 
-div.middle:hover {
+div.divMiddle:hover {
 	background-color:#ff0066;
 }
 
-div.align-left > p {
+div.divMiddle > p {
+	color: #ff0066;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+div.divRight > p {
 	text-align: left;
 }
 
-div.align-right > p {
+div.divRight {
+	margin-left: 0px;
+}
+
+div.divLeft > p {
 	text-align: right;
 }
 
-div.middle > p {
-	color: #ff0066;
-
-}
 
 
 </style>

@@ -13,21 +13,33 @@ function findOccur(toSearchIn,toFind) {
 	return finds;
 }
 
-// 
+function createKWICDiv(toSearchIn, finds) {
+	/*Create a new Div container for given keyword*/
+	var divLeft = document.createElement("div");
+	divLeft.className = "divLeft";
+	var divMiddle = document.createElement("div");
+	divMiddle.className = "divMiddle";
+	divMiddle.addEventListener("click", function() {
+           window.location = "visual.html";
+});
+	var divRight = document.createElement("div");
+	divRight.className = "divRight";
+
+
+}
+
 
 //find visual linguistics
 var visual = "This is a test for Visual Linguistics. The project Visual Linguistics is great. This is a sentence without the words I am looking for. Visual Linguistics is led by Noah Bubenhofer. And this is an empty one too. In Visual Linguistics we have fun."
 var divleft = document.createElement("div");
-divleft.className = "align-right";
+divleft.className = "divLeft";
 var divmiddle = document.createElement("div");
-divmiddle.className = "middle";
-divmiddle.style.marginLeft="5px";
-divmiddle.style.marginRight="5px";
+divmiddle.className = "divMiddle";
 divmiddle.addEventListener("click", function() {
-           window.location = "visual.html";
+    window.location = "visual.html";
 });
 var divright = document.createElement("div");
-divright.className = "align-left"
+divright.className = "divRight";
 
 var toFind = "Visual Linguistics";
 
@@ -60,7 +72,16 @@ finds.forEach(function(index,i) {
 	}
 	divright.appendChild(postfix);
 });
+var master = document.createElement("div");
+master.className = "divMaster";
+master.appendChild(divleft);
+master.appendChild(divmiddle);
+master.appendChild(divright);
+document.body.appendChild(master);
 
-document.body.appendChild(divleft);
-document.body.appendChild(divmiddle);
-document.body.appendChild(divright);
+
+// document.body.appendChild(divleft);
+// document.body.appendChild(divmiddle);
+// document.body.appendChild(divright);
+
+
