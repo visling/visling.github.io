@@ -1,7 +1,7 @@
 <head>
 <style>
 body {
-    /*background-color: #f0f0f5;*/
+    background-color: #f0f0f5;
 }
 
 button.homeButton {
@@ -25,14 +25,12 @@ h1 {
 	font-style: bold;
 	display: inline-block;
 	vertical-align: middle;
-
 }
 
 div.text {
 	display: inline-block;
 	margin-left: 80px;
 	margin-right: 140px;
-
 }
 
 div.divMaster {
@@ -65,8 +63,6 @@ div.divRight {
 div.divLeft > p {
 	text-align: right;
 }
-
-
 
 </style>
 </head>
