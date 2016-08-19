@@ -1,7 +1,7 @@
 # visling.github.io
 Webseite Visual Linguistics
 
-Dieses Repository beinhaltet die HTML-, CSS-, JavaScript-, txt.- und sonstige Dateien, welche die Webseite des Projekts Visual Linguistics ausmachen.
+Dieses Repository beinhaltet die HTML-, CSS-, JavaScript-, .txt- und sonstige Dateien, welche die Webseite des Projekts Visual Linguistics ausmachen.
 
 Die "Menüleiste" dieser Webseite stellt eine KWIC-Darstellung dar. Pro "Seite" wurde ein Keyword für die KWIC-Darstellung gewählt. Jene Keywords sind die Wahltaste für die jeweiligen "Seiten".
 
