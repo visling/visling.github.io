@@ -1,8 +1,5 @@
 <head>
 <style>
-body {
-    background-color: #f0f0f5;
-}
 
 button.homeButton {
 	margin-left: 80px;
@@ -17,16 +14,22 @@ h1 {
 
 * {
 	font-family: "Open sans";
-	color: #4d4d4d;
+	color: white;
+	background-color: #3d3d5c;
 }
 
 div.panel {
 	padding: 0 18px;
-    background-color: white;
+    background-color: #46466d;
     max-height: 0;
     overflow: hidden;
     transition: 0.3s ease-in-out;
     opacity: 0;
+    justify-content: center;
+    position: relative;
+    margin-left: 100px;
+	margin-right: 100px;
+
 }
 
 div.panel.show {
@@ -53,10 +56,12 @@ div.divMiddle.active{
 
 div.divMiddle:hover > p{
 	color: white;
+	background-color: #ff0066;
 }
 
 div.divMiddle.active > p {
 	color:white;
+	background-color: #ff0066;
 }
 
 div.divMiddle:hover {
@@ -85,6 +90,10 @@ div.divRight {
 
 div.divLeft > p {
 	text-align: right;
+}
+
+.hide {
+	display: none;
 }
 
 </style>

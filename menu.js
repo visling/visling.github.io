@@ -114,6 +114,8 @@ for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
         this.classList.toggle("active");
         this.parentElement.nextElementSibling.classList.toggle("show"); //--> next parentsibling!!
+        this.nextElementSibling.classList.toggle("hide");
+        this.previousSibling.classList.toggle("hide");
     }
 }
 
