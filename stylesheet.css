@@ -58,6 +58,8 @@ div.divRight > p {
 
 div.divRight {
 	margin-left: 0px;
+	color: white;
+    /*background: -webkit-linear-gradient(left, rgba(240,240,245,1) 0%,rgba(255,255,255,1) 100%);*/
 }
 
 div.divLeft > p {

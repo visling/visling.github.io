@@ -21,6 +21,7 @@ function getClosestInt(givenInt, intList, pos) {
 }
 
 
+
 function findOccur(toSearchIn,toFind) {
 	/*Find all occurences of string toFind in string to SarchIn*/
 	var start = 0;
@@ -34,11 +35,10 @@ function findOccur(toSearchIn,toFind) {
 }
 
 
-function createKWICDiv(toSearchIn, finds) {
+function createKWICDiv(toSearchIn, finds,toFind) {
 	/*Create divs for given keyword*/
 
 	//find visual linguistics
-	
 	var divleft = document.createElement("div");
 	divleft.className = "divLeft";
 	var divmiddle = document.createElement("div");
@@ -75,7 +75,11 @@ function createKWICDiv(toSearchIn, finds) {
 			postfix.textContent = "."
 		} else {
 			var punctAfter = getClosestInt(index+toFind.length-1,puncts,false);
-			postfix.textContent = toSearchIn.substring(index+toFind.length, punctAfter+length+1);
+			var textContent = toSearchIn.substring(index+toFind.length, punctAfter+length+1);
+			postfix.textContent = textContent.slice(0,-6);
+			var fade = document.createElement("span");
+			fade.textContent = textContent.slice(-6,textContent.length);
+			postfix.appendChild(fade);
 		}
 		divright.appendChild(postfix);
 	});
@@ -89,9 +93,18 @@ function createKWICDiv(toSearchIn, finds) {
 	document.body.appendChild(master);
 }
 
+// var content = document.body.childNodes;
+// content.forEach(function(node,i) {;
+// 	if (node.nodeType != Node.TEXT_NODE) {
+// 		var toSearchIn = node.textContent;
+// 		var toFind = "Visual Linguistics";
+// 		var finds = findOccur(toSearchIn,toFind);
+// 		createKWICDiv(toSearchIn,finds,toFind);
+// 	}
+// })
 
-var toFind = "Visual Linguistics";
-var toSearchIn = "This is a test for Visual Linguistics. The project Visual Linguistics is great. This is a sentence without the words I am looking for. Visual Linguistics is led by Noah Bubenhofer. And this is an empty one too. In Visual Linguistics we have fun."
+var toSearchIn = "Test Visual Linguistics. Test Visual Linguistics."
+var toFind = "Visual Linguistics"
 var finds = findOccur(toSearchIn,toFind);
-createKWICDiv(toSearchIn,finds);
+createKWICDiv(toSearchIn,finds,toFind);
 
