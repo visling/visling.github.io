@@ -57,6 +57,7 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 		var prefix = document.createElement("p");
 		if (toSearchIn[index-2] == "." || toSearchIn[index-2] == "!"){
 			prefix.textContent = "...";
+			prefix.style.visibility = "hidden";
 		}
 		else {
 			var punctBefore = getClosestInt(index, puncts, true);
