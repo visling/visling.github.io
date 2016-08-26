@@ -75,11 +75,14 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 			postfix.textContent = "."
 		} else {
 			var punctAfter = getClosestInt(index+toFind.length-1,puncts,false);
-			var textContent = toSearchIn.substring(index+toFind.length, punctAfter+length+1);
-			postfix.textContent = textContent.slice(0,-6);
-			var fade = document.createElement("span");
-			fade.textContent = textContent.slice(-6,textContent.length);
-			postfix.appendChild(fade);
+			var textContent = toSearchIn.substring(index+toFind.length, punctAfter)+" .";
+			// var textContent = toSearchIn.substring(index+toFind.length, punctAfter+length+1);
+			// postfix.textContent = textContent.slice(0,-6);
+			// var fade = document.createElement("span");
+			// fade.textContent = textContent.slice(-6,textContent.length);
+			// postfix.appendChild(fade);
+
+			postfix.textContent = textContent;
 		}
 		divright.appendChild(postfix);
 	});

@@ -38,6 +38,12 @@ div.divMaster {
 	justify-content: center;
 }
 
+div.divMiddle {
+    height: auto;
+    width: auto;
+    white-space: nowrap;
+}
+
 div.divMiddle:hover > p{
 	color: white;
 }
@@ -50,6 +56,9 @@ div.divMiddle > p {
 	color: #ff0066;
 	margin-left: 5px;
 	margin-right: 5px;
+	height: auto;
+    width: auto;
+    white-space: nowrap;
 }
 
 div.divRight > p {
