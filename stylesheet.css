@@ -20,17 +20,10 @@ h1 {
 	color: #4d4d4d;
 }
 
-.menu {
-	color: red;
-	font-style: bold;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-div.text {
-	display: inline-block;
-	margin-left: 80px;
-	margin-right: 140px;
+div.panel {
+	padding: 0 18px;
+    background-color: white;
+    display: none;
 }
 
 div.divMaster {
@@ -42,6 +35,7 @@ div.divMiddle {
     height: auto;
     width: auto;
     white-space: nowrap;
+    transition:0.4s;
 }
 
 div.divMiddle:hover > p{

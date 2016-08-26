@@ -34,6 +34,13 @@ function findOccur(toSearchIn,toFind) {
 	return finds;
 }
 
+// function accordion(divmiddle, toSearchIn) {
+// 	var divText = document.createElement("div");
+// 	divText.class = "panel";
+// 	divText.textContent = toSearchIn;
+// 	divmiddle.appendChild(divText);
+// 	return divmiddle;
+// }
 
 function createKWICDiv(toSearchIn, finds,toFind) {
 	/*Create divs for given keyword*/
@@ -43,9 +50,6 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	divleft.className = "divLeft";
 	var divmiddle = document.createElement("div");
 	divmiddle.className = "divMiddle";
-	divmiddle.addEventListener("click", function() {
-	    window.location = htmlDict[toFind];
-	});
 	var divright = document.createElement("div");
 	divright.className = "divRight";
 
@@ -76,13 +80,7 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 			postfix.textContent = "."
 		} else {
 			var punctAfter = getClosestInt(index+toFind.length-1,puncts,false);
-			var textContent = toSearchIn.substring(index+toFind.length, punctAfter)+" .";
-			// var textContent = toSearchIn.substring(index+toFind.length, punctAfter+length+1);
-			// postfix.textContent = textContent.slice(0,-6);
-			// var fade = document.createElement("span");
-			// fade.textContent = textContent.slice(-6,textContent.length);
-			// postfix.appendChild(fade);
-
+			var textContent = toSearchIn.substring(index+toFind.length, punctAfter)+" ."
 			postfix.textContent = textContent;
 		}
 		divright.appendChild(postfix);
@@ -94,21 +92,30 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	master.appendChild(divleft);
 	master.appendChild(divmiddle);
 	master.appendChild(divright);
-	document.body.appendChild(master);
+
+	// insert master div before the actual text
+	var currentPanel = document.getElementById(toFind);
+	document.body.insertBefore(master,currentPanel)
 }
 
-var children = document.getElementsByClassName("invisible");
+var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
 	var toSearchIn = children[i].innerHTML;
 	var toFind = children[i].id;
 	var finds = findOccur(toSearchIn,toFind);
 	createKWICDiv(toSearchIn,finds,toFind);
-	// var test = document.createElement("test");
-	// test.textContent = children[i].innerHTML;
-	// document.body.appendChild(test);
 }
 
 var htmlDict = {"Visual Linguistics": "visual.html", "Team":"team.html"};
+
+var acc = document.getElementsByClassName("divMiddle");
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show"); //--> next parentsibling!!
+    }
+}
 
 // Test for functions :: TEMP
 // var toSearchIn = "Test Visual Linguistics. Test Visual Linguistics."
