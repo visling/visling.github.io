@@ -44,7 +44,7 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	var divmiddle = document.createElement("div");
 	divmiddle.className = "divMiddle";
 	divmiddle.addEventListener("click", function() {
-	    window.location = "visual.html";
+	    window.location = htmlDict[toFind];
 	});
 	var divright = document.createElement("div");
 	divright.className = "divRight";
@@ -93,18 +93,22 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	document.body.appendChild(master);
 }
 
-// var content = document.body.childNodes;
-// content.forEach(function(node,i) {;
-// 	if (node.nodeType != Node.TEXT_NODE) {
-// 		var toSearchIn = node.textContent;
-// 		var toFind = "Visual Linguistics";
-// 		var finds = findOccur(toSearchIn,toFind);
-// 		createKWICDiv(toSearchIn,finds,toFind);
-// 	}
-// })
+var children = document.getElementsByClassName("invisible");
+for (var i = 0; i < children.length; i++) {
+	var toSearchIn = children[i].innerHTML;
+	var toFind = children[i].id;
+	var finds = findOccur(toSearchIn,toFind);
+	createKWICDiv(toSearchIn,finds,toFind);
+	// var test = document.createElement("test");
+	// test.textContent = children[i].innerHTML;
+	// document.body.appendChild(test);
+}
 
-var toSearchIn = "Test Visual Linguistics. Test Visual Linguistics."
-var toFind = "Visual Linguistics"
-var finds = findOccur(toSearchIn,toFind);
-createKWICDiv(toSearchIn,finds,toFind);
+var htmlDict = {"Visual Linguistics": "visual.html", "Team":"team.html"};
+
+// Test for functions :: TEMP
+// var toSearchIn = "Test Visual Linguistics. Test Visual Linguistics."
+// var toFind = "Visual Linguistics"
+// var finds = findOccur(toSearchIn,toFind);
+// createKWICDiv(toSearchIn,finds,toFind);
 
