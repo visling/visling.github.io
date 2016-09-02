@@ -93,6 +93,7 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	//create master div for easier CSS handling
 	var master = document.createElement("div");
 	master.className = "divMaster";
+	//middle div parent of left and right, for CSS
 	divmiddle.appendChild(divleft);
 	divmiddle.appendChild(divright);
 	master.appendChild(divmiddle);
@@ -102,21 +103,13 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	document.body.insertBefore(master,currentPanel)
 }
 
-function setClass(els, className, fnName) {
-    for (var i = 0; i < els.length; i++) {
-        els[i].classList[fnName](className);
-    }
-}
-
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
-	var toSearchIn = children[i].innerHTML;
+	var toSearchIn = children[i].textContent;
 	var toFind = children[i].id;
 	var finds = findOccur(toSearchIn,toFind);
 	createKWICDiv(toSearchIn,finds,toFind);
 }
-
-var htmlDict = {"Visual Linguistics": "visual.html", "Team":"team.html"};
 
 var acc = document.getElementsByClassName("divMiddle");
 var i;

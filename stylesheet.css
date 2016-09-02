@@ -19,6 +19,10 @@ h1 {
 	position:relative;
 }
 
+img {
+	width: 70%;
+}
+/*Inhalt einer Rubrik*/
 div.panel {
 	padding: 0 18px;
     background-color: #46466d;
@@ -33,7 +37,8 @@ div.panel {
 
 div.panel.show {
 	opacity: 1;
-	max-height: 500px;
+	max-height: none;
+	transition:0.4s;
 }
 
 div.divMaster {
@@ -42,8 +47,6 @@ div.divMaster {
 }
 
 div.divMiddle {
-	/*width: auto;
-    height: auto;*/
     text-align: center;
     white-space: nowrap;
     transition:0.4s;
@@ -53,6 +56,7 @@ div.divMiddle {
 
 div.divMiddle.active{
 	background-color: #ff0066;
+	transition:0.4s;
 
 }
 
@@ -88,12 +92,16 @@ div.divRight {
 	position:absolute;
 	/*margin-left: 0px;*/
 	color: white;
+	width: 20%;
+	transition: 0.4s ease-in-out;
 	top:0;right:0;
     transform:translateX(100%);		/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
 }
 
 div.divLeft {
+	width:-10%;
 	position:absolute;
+	transition: 0.4s ease-in-out;
 	top:0;left:0;
     transform:translateX(-100%);	/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
 }
@@ -103,8 +111,10 @@ div.divLeft > p {
 }
 
 .hide {
-	display: none;
+	display:none;
 }
+
+
 
 </style>
 </head>
