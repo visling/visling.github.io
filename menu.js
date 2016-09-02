@@ -93,9 +93,9 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	//create master div for easier CSS handling
 	var master = document.createElement("div");
 	master.className = "divMaster";
-	master.appendChild(divleft);
+	divmiddle.appendChild(divleft);
+	divmiddle.appendChild(divright);
 	master.appendChild(divmiddle);
-	master.appendChild(divright);
 
 	// insert master div before the actual text
 	var currentPanel = document.getElementById(toFind);

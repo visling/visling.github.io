@@ -16,6 +16,7 @@ h1 {
 	font-family: "Open sans", sans-serif;
 	color: white;
 	background-color: #3d3d5c;
+	position:relative;
 }
 
 div.panel {
@@ -43,18 +44,18 @@ div.divMaster {
 }
 
 div.divMiddle {
-    /*height: auto;
-    width: auto;*/
+	/*width: auto;
+    height: auto;*/
+    text-align: center;
     white-space: nowrap;
     transition:0.4s;
-    text-align: center;
-    display:table;
-    margin: 0 auto;
     cursor:pointer;
+    z-index: 2;						/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
 }
 
 div.divMiddle.active{
 	background-color: #ff0066;
+
 }
 
 div.divMiddle:hover > p{
@@ -86,9 +87,17 @@ div.divRight > p {
 }
 
 div.divRight {
-	margin-left: 0px;
+	position:absolute;
+	/*margin-left: 0px;*/
 	color: white;
-    /*background: -webkit-linear-gradient(left, rgba(240,240,245,1) 0%,rgba(255,255,255,1) 100%);*/
+	top:0;right:0;
+    transform:translateX(100%);		/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
+}
+
+div.divLeft {
+	position:absolute;
+	top:0;left:0;
+    transform:translateX(-100%);	/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
 }
 
 div.divLeft > p {
