@@ -5,4 +5,4 @@ Dieses Repository beinhaltet die HTML-, CSS-, JavaScript-, .txt- und sonstige Da
 
 Die "Menüleiste" dieser Webseite stellt eine KWIC-Darstellung dar. Pro "Seite" wurde ein Keyword für die KWIC-Darstellung gewählt. Jene Keywords sind die Wahltaste für die jeweiligen "Seiten".
 
-Beim anwählen einer "Seite" klappen die anderen Kategorien zusammen wie ein Akkordion und sichtbar werden der Inhalt der gewählten "Seite"  und je eine Zeile der anderen Kategorien.
+Beim anwählen einer "Seite" klappen die anderen Kategorien zusammen wie ein Akkordion und sichtbar werden der Inhalt der gewählten Rubrik.
