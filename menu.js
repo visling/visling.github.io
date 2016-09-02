@@ -123,17 +123,11 @@ var i;
 for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
         var active = document.getElementsByClassName("active")
-        // change the others to non-active
-        // for (i = 0; i < acc.length; i++) {
-        // 	if (acc[i] != curr && acc[i].classList.contains("active")) {
-        // 		this.classList.toggle("active");
-        // 	}
-        // }
-
         this.classList.toggle("active");
         this.parentElement.nextElementSibling.classList.toggle("show"); //every other element with "show" in class needs to go back to hide
-        this.nextElementSibling.classList.toggle("hide");
-        this.previousSibling.classList.toggle("hide");
+        for (i = 1; i < this.children.length; i++) {
+        	this.children[i].classList.toggle("hide");
+        }
     }
 }
 

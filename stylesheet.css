@@ -26,10 +26,8 @@ div.panel {
     overflow: hidden;
     transition: 0.3s ease-in-out;
     opacity: 0;
-    justify-content: center;
-    position: relative;
-    margin-left: 100px;
-	margin-right: 100px;
+    width: 80%;
+    margin: 0 auto;
 
 }
 
