@@ -1,6 +1,10 @@
 
 // var puncts = ["!",".","?"];
 
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
 function getClosestInt(givenInt, intList, pos) {
 	/*Find the interger in intList closest to givenInt either before or 
 	after depending on pos (True = before) */
@@ -98,6 +102,12 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	document.body.insertBefore(master,currentPanel)
 }
 
+function setClass(els, className, fnName) {
+    for (var i = 0; i < els.length; i++) {
+        els[i].classList[fnName](className);
+    }
+}
+
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
 	var toSearchIn = children[i].innerHTML;
@@ -112,8 +122,16 @@ var acc = document.getElementsByClassName("divMiddle");
 var i;
 for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
+        var active = document.getElementsByClassName("active")
+        // change the others to non-active
+        // for (i = 0; i < acc.length; i++) {
+        // 	if (acc[i] != curr && acc[i].classList.contains("active")) {
+        // 		this.classList.toggle("active");
+        // 	}
+        // }
+
         this.classList.toggle("active");
-        this.parentElement.nextElementSibling.classList.toggle("show"); //--> next parentsibling!!
+        this.parentElement.nextElementSibling.classList.toggle("show"); //every other element with "show" in class needs to go back to hide
         this.nextElementSibling.classList.toggle("hide");
         this.previousSibling.classList.toggle("hide");
     }
