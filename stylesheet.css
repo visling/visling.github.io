@@ -1,6 +1,10 @@
 <head>
 <style>
 
+body {
+	max-width: 100%;
+	margin: 0;
+}
 button.homeButton {
 	margin-left: 80px;
 	margin-top: 40px;
@@ -22,7 +26,11 @@ h1 {
 img {
 	width: 70%;
 }
-/*Inhalt einer Rubrik*/
+
+p.dots {
+	width:3%;
+}
+
 div.panel {
 	padding: 0 18px;
     background-color: #46466d;
@@ -32,7 +40,6 @@ div.panel {
     opacity: 0;
     width: 80%;
     margin: 0 auto;
-
 }
 
 div.panel.show {
@@ -44,6 +51,7 @@ div.panel.show {
 div.divMaster {
 	display: flex;
 	justify-content: center;
+	overflow:hidden;
 }
 
 div.divMiddle {
@@ -52,6 +60,7 @@ div.divMiddle {
     transition:0.4s;
     cursor:pointer;
     z-index: 2;						/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
+    display:inline-block; /*div only as wide as content*/
 }
 
 div.divMiddle.active{
@@ -85,17 +94,17 @@ div.divMiddle > p {
 }
 
 div.divRight > p {
-	text-align: left;
+	text-align: left; 
 }
 
 div.divRight {
 	position:absolute;
-	/*margin-left: 0px;*/
+	margin-left: 0px;
 	color: white;
-	width: 20%;
 	transition: 0.4s ease-in-out;
 	top:0;right:0;
     transform:translateX(100%);		/*adapted from:http://jsfiddle.net/qehmzhdf/;*/
+    overflow:hidden;
 }
 
 div.divLeft {

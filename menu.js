@@ -24,8 +24,6 @@ function getClosestInt(givenInt, intList, pos) {
 	}
 }
 
-
-
 function findOccur(toSearchIn,toFind) {
 	/*Find all occurences of string toFind in string to SarchIn*/
 	var start = 0;
@@ -37,14 +35,6 @@ function findOccur(toSearchIn,toFind) {
 	}
 	return finds;
 }
-
-// function accordion(divmiddle, toSearchIn) {
-// 	var divText = document.createElement("div");
-// 	divText.class = "panel";
-// 	divText.textContent = toSearchIn;
-// 	divmiddle.appendChild(divText);
-// 	return divmiddle;
-// }
 
 function createKWICDiv(toSearchIn, finds,toFind) {
 	/*Create divs for given keyword*/
@@ -71,7 +61,9 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 			var punctBefore = getClosestInt(index, puncts, true);
 			prefix.textContent = toSearchIn.substring(punctBefore+2,index);	
 		}
+		
 		divleft.appendChild(prefix);
+		
 
 		//middle
 		var middle = document.createElement("p")
@@ -87,16 +79,19 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 			var textContent = toSearchIn.substring(index+toFind.length, punctAfter)+" ."
 			postfix.textContent = textContent;
 		}
+
 		divright.appendChild(postfix);
 	});
-
+	
 	//create master div for easier CSS handling
 	var master = document.createElement("div");
 	master.className = "divMaster";
-	//middle div parent of left and right, for CSS
+	// middle div parent of left and right, for CSS
 	divmiddle.appendChild(divleft);
 	divmiddle.appendChild(divright);
+	// master.appendChild(divleft);
 	master.appendChild(divmiddle);
+	// master.appendChild(divright);
 
 	// insert master div before the actual text
 	var currentPanel = document.getElementById(toFind);
@@ -123,10 +118,3 @@ for (i = 0; i < acc.length; i++) {
         }
     }
 }
-
-// Test for functions :: TEMP
-// var toSearchIn = "Test Visual Linguistics. Test Visual Linguistics."
-// var toFind = "Visual Linguistics"
-// var finds = findOccur(toSearchIn,toFind);
-// createKWICDiv(toSearchIn,finds,toFind);
-
