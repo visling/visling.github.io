@@ -1,8 +1,6 @@
-
-// var puncts = ["!",".","?"];
-
-function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+function getRandomArbitrary(min, max) {
+	// Returns a random number between min (inclusive) and max (exclusive)
+    return Math.random() * (max - min) + min;
 }
 
 function getClosestInt(givenInt, intList, pos) {
@@ -106,10 +104,20 @@ for (var i = 0; i < children.length; i++) {
 	createKWICDiv(toSearchIn,finds,toFind);
 }
 
-var acc = document.getElementsByClassName("divMiddle");
+
+//go thru every keyword and generate random number 
+//between 3-6 (use function get RandomArbitrary, siehe oben)to
+//define how many "finds" with keyword should be rendered.
+//if condition: if less available than minimum, allow less
+
+
+var middle = document.getElementsByClassName("divMiddle");
 var i;
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
+
+
+
+for (i = 0; i < middle.length; i++) {
+    middle[i].onclick = function(){
         var active = document.getElementsByClassName("active")
         this.classList.toggle("active");
         this.parentElement.nextElementSibling.classList.toggle("show"); //every other element with "show" in class needs to go back to hide
@@ -118,3 +126,26 @@ for (i = 0; i < acc.length; i++) {
         }
     }
 }
+
+for (i = 0; i < middle.length; i++) {
+	//Random number of displayed kwics per category
+	var rndm = Math.floor(getRandomArbitrary(3,7));
+	
+	var pre = middle[i].getElementsByClassName("divLeft")[0].getElementsByTagName("P");
+	var post = middle[i].getElementsByClassName("divRight")[0].getElementsByTagName("P");
+
+	var allPs = middle[i].getElementsByTagName("P");
+	var keyw = [];
+	for (j=0;j<allPs.length;j++) {
+		//get all keywords (middle)
+		if (allPs[j].parentNode.className == "divMiddle") {
+			keyw.push(allPs[j]);
+		}
+	}
+
+	for (j=rndm; j < keyw.length; j++) {
+		pre[j].style.visibility = "hidden";
+		keyw[j].style.visibility = "hidden";
+		post[j].style.visibility = "hidden";
+	}
+};
