@@ -116,12 +116,13 @@ for (var i = 0; i < children.length; i++) {
 var middle = document.getElementsByClassName("divMiddle");
 var i;
 
-//Accordion effect
+//Accordion effect  !!!!! this is buggyyyy
 for (i = 0; i < middle.length; i++) {
     middle[i].onclick = function(){
     	//Reset: Clear status of all active/shown elements
-    	for (k=0;k<middle.length;k++){
+    	for (var k=0;k<middle.length;k++){
     		if (k != i) {
+				console.log('k', k, 'i', i);
 	    		var active = document.getElementsByClassName("active");
 		    	toggleReverse(active,"active");
 		    	var show = document.getElementsByClassName("show");
@@ -134,8 +135,10 @@ for (i = 0; i < middle.length; i++) {
     	//Toggle currently clicked category
         this.classList.toggle("active");
         this.parentElement.nextElementSibling.classList.toggle("show");
-        for (i = 1; i < this.children.length; i++) {
-        	this.children[i].classList.toggle("hide");
+        for (var j = 1; j < this.children.length; j++) {
+			// console.log('hello');
+
+        	this.children[j].classList.toggle("hide");
         }
     }
 }
@@ -162,3 +165,5 @@ for (i = 0; i < middle.length; i++) {
 		post[j].style.display = "none";
 	}
 };
+
+document.getElementsByClassName("show").focus(); //doesn't werk
