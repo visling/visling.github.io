@@ -96,6 +96,14 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	document.body.insertBefore(master,currentPanel)
 }
 
+function toggleReverse(elements,className) {
+	//Helper function to reset elements
+	for (j=0; j<elements.length; j++) {
+		elements[j].classList.toggle(className);
+	}
+}
+
+//Fetch all categories and produce KWIC
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
 	var toSearchIn = children[i].textContent;
@@ -104,23 +112,28 @@ for (var i = 0; i < children.length; i++) {
 	createKWICDiv(toSearchIn,finds,toFind);
 }
 
-
-//go thru every keyword and generate random number 
-//between 3-6 (use function get RandomArbitrary, siehe oben)to
-//define how many "finds" with keyword should be rendered.
-//if condition: if less available than minimum, allow less
-
-
+//For actions on div with class "divMiddle"
 var middle = document.getElementsByClassName("divMiddle");
 var i;
 
-
-
+//Accordion effect
 for (i = 0; i < middle.length; i++) {
     middle[i].onclick = function(){
-        var active = document.getElementsByClassName("active")
+    	//Reset: Clear status of all active/shown elements
+    	for (k=0;k<middle.length;k++){
+    		if (k != i) {
+	    		var active = document.getElementsByClassName("active");
+		    	toggleReverse(active,"active");
+		    	var show = document.getElementsByClassName("show");
+		    	toggleReverse(show,"show");
+		    	var hide = document.getElementsByClassName("hide");
+		    	toggleReverse(hide,"hide");
+	    	}
+    	}
+
+    	//Toggle currently clicked category
         this.classList.toggle("active");
-        this.parentElement.nextElementSibling.classList.toggle("show"); //every other element with "show" in class needs to go back to hide
+        this.parentElement.nextElementSibling.classList.toggle("show");
         for (i = 1; i < this.children.length; i++) {
         	this.children[i].classList.toggle("hide");
         }
@@ -144,8 +157,8 @@ for (i = 0; i < middle.length; i++) {
 	}
 
 	for (j=rndm; j < keyw.length; j++) {
-		pre[j].style.visibility = "hidden";
-		keyw[j].style.visibility = "hidden";
-		post[j].style.visibility = "hidden";
+		pre[j].style.display = "none";
+		keyw[j].style.display = "none";
+		post[j].style.display = "none";
 	}
 };

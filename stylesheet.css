@@ -44,8 +44,9 @@ div.panel {
 
 div.panel.show {
 	opacity: 1;
-	max-height: none;
+	max-height: 80%;
 	transition:0.4s;
+	overflow: auto;
 }
 
 div.divMaster {
