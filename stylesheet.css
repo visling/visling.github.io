@@ -18,8 +18,9 @@ h1 {
 
 * {
 	font-family: "Open sans", sans-serif;
-	color: white;
-	background-color: #3d3d5c;
+	color: #595959;
+	/*background-color: #3d3d5c;*/
+	background-color: #FDF3E7;
 	position:relative;
 	font-size: 20px;
 }
@@ -34,7 +35,8 @@ p.dots {
 
 div.panel {
 	padding: 0 18px;
-    background-color: #46466d;
+    /*background-color: #46466d;*/
+    background-color: #ffffff;
     max-height: 0;
     overflow: hidden;
     transition: 0.3s ease-in-out;

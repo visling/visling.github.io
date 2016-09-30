@@ -181,6 +181,7 @@ for (i = 0; i < middle.length; i++) {
 
 //every category different color hue
 var hues = ["#ff0066", "#ff3385", "#ff66a3", "#ff99c2"]; //hues of color #ff0066
+var hues = ["#ff6699", "#e65c00", "#996633","#669900"]; //, "#e6e600", "#ff9933","#993366","#006600"];
 for (var c = 0; c < middle.length; c++) {
 	var rndm = Math.floor(getRandomArbitrary(0,hues.length));
 	var titles = middle[c].getElementsByTagName("P");
