@@ -180,14 +180,21 @@ for (i = 0; i < middle.length; i++) {
 
 
 //every category different color hue
-var hues = ["#ff0066", "#ff3385", "#ff66a3", "#ff99c2"]; //hues of color #ff0066
-// var hues = ["#ff6699", "#e65c00", "#996633","#669900"]; //, "#e6e600", "#ff9933","#993366","#006600"];
+var hues = ["#66b3ff","#ff66a3","#ffa439","#36b083"]; //hues of color #ff0066
+var hues = ["#ff0066","#ffa439"];
+// var hues = ["#FF6F00", "#FFCAA1", "#AA6A39", "#7C5F48"];
+var hue = "";
 for (var c = 0; c < middle.length; c++) {
 	var rndm = Math.floor(getRandomArbitrary(0,hues.length));
+	while (hue == hues[rndm]) {
+		//avoiding same color as neighbor category
+		rndm = Math.floor(getRandomArbitrary(0,hues.length));
+	}
+	hue = hues[rndm];
 	var titles = middle[c].getElementsByTagName("P");
 	for (var i = 0; i < titles.length; i++) {
 		if (titles[i].parentElement.className == "divMiddle") {
-			titles[i].style.color = hues[rndm];
+			titles[i].style.color = hue;
 		}
 	}
 }

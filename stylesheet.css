@@ -22,6 +22,8 @@ h1 {
 	color: white;
 	background-color: #3d3d5c;
 	/*background-color: #FDF3E7;*/
+	/*background-color: #5B3E4B;*/
+	/*background-color: white;*/
 	position:relative;
 	font-size: 20px;
 }
@@ -46,7 +48,11 @@ div.panel {
     margin: 0 auto;
 }
 
-div.panel.show {
+div.panel > * {
+	background-color: #46466d;
+}
+
+div.panel.show  {
 	opacity: 1;
 	max-height: 80vh;
 	transition:0.4s;
