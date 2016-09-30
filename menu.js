@@ -103,6 +103,13 @@ function toggleReverse(elements,className) {
 	}
 }
 
+//copied from Stockoverflow
+function setClass(els, className, fnName) {
+    for (var i = 0; i < els.length; i++) {
+        els[i].classList[fnName](className);
+    };
+};
+
 //Fetch all categories and produce KWIC
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
@@ -116,32 +123,67 @@ for (var i = 0; i < children.length; i++) {
 var middle = document.getElementsByClassName("divMiddle");
 var i;
 
-//Accordion effect  !!!!! this is buggyyyy
-for (i = 0; i < middle.length; i++) {
-    middle[i].onclick = function(){
-    	//Reset: Clear status of all active/shown elements
-    	for (var k=0;k<middle.length;k++){
-    		if (k != i) {
-				console.log('k', k, 'i', i);
-	    		var active = document.getElementsByClassName("active");
-		    	toggleReverse(active,"active");
-		    	var show = document.getElementsByClassName("show");
-		    	toggleReverse(show,"show");
-		    	var hide = document.getElementsByClassName("hide");
-		    	toggleReverse(hide,"hide");
-	    	}
-    	}
+// //Accordion effect  !!!!! this is buggyyyy
+// for (i = 0; i < middle.length; i++) {
+//     middle[i].onclick = function(){
+//     	this.parentElement.nextElementSibling.focus();
+//     	//Reset: Clear status of all active/show/hide elements
+//     	for (var k=0;k<middle.length;k++){
+//     		if (k != i) {
+// 				console.log('k', k, 'i', i);
+// 	    		var active = document.getElementsByClassName("active");
+// 		    	toggleReverse(active,"active");
+// 		    	var show = document.getElementsByClassName("show");
+// 		    	toggleReverse(show,"show");
+// 		    	var hide = document.getElementsByClassName("hide");
+// 		    	toggleReverse(hide,"hide");
+// 	    	};
+//     	}
 
-    	//Toggle currently clicked category
-        this.classList.toggle("active");
-        this.parentElement.nextElementSibling.classList.toggle("show");
+//     	//Toggle currently clicked category
+//     	console.log("here");
+//         this.classList.toggle("active");
+//         this.parentElement.nextElementSibling.classList.toggle("show");
+
+
+
+//     };
+// }
+
+//Accordion effect
+//copied and modified from Stockoverflow
+var middle = document.getElementsByClassName("divMiddle");
+var panel = document.getElementsByClassName("panel");
+
+for (var i = 0; i < middle.length; i++) {
+    middle[i].onclick = function() {
+    	//open/close selected category
+        var setClasses = !this.classList.contains('active');
+        setClass(middle, 'active', 'remove');
+        setClass(panel, 'show', 'remove');
+
         for (var j = 1; j < this.children.length; j++) {
-			// console.log('hello');
-
         	this.children[j].classList.toggle("hide");
-        }
-    }
-}
+       	};
+
+        //reset all other
+        if (setClasses) {
+            this.classList.toggle("active");
+            this.parentElement.nextElementSibling.classList.toggle("show");
+            for (var k = 0; k < middle.length; k++) {
+            	if (middle[k] != this) {
+            		var children = middle[k].children;
+            		setClass(children,"hide", "remove");
+            	};
+            }
+        };
+    };
+};
+
+
+
+
+
 
 for (i = 0; i < middle.length; i++) {
 	//Random number of displayed kwics per category
@@ -166,4 +208,4 @@ for (i = 0; i < middle.length; i++) {
 	}
 };
 
-document.getElementsByClassName("show").focus(); //doesn't werk
+
