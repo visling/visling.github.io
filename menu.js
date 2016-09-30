@@ -123,38 +123,13 @@ for (var i = 0; i < children.length; i++) {
 var middle = document.getElementsByClassName("divMiddle");
 var i;
 
-// //Accordion effect  !!!!! this is buggyyyy
-// for (i = 0; i < middle.length; i++) {
-//     middle[i].onclick = function(){
-//     	this.parentElement.nextElementSibling.focus();
-//     	//Reset: Clear status of all active/show/hide elements
-//     	for (var k=0;k<middle.length;k++){
-//     		if (k != i) {
-// 				console.log('k', k, 'i', i);
-// 	    		var active = document.getElementsByClassName("active");
-// 		    	toggleReverse(active,"active");
-// 		    	var show = document.getElementsByClassName("show");
-// 		    	toggleReverse(show,"show");
-// 		    	var hide = document.getElementsByClassName("hide");
-// 		    	toggleReverse(hide,"hide");
-// 	    	};
-//     	}
-
-//     	//Toggle currently clicked category
-//     	console.log("here");
-//         this.classList.toggle("active");
-//         this.parentElement.nextElementSibling.classList.toggle("show");
 
 
-
-//     };
-// }
-
-//Accordion effect
-//copied and modified from Stockoverflow
 var middle = document.getElementsByClassName("divMiddle");
 var panel = document.getElementsByClassName("panel");
 
+//Accordion effect
+//copied and modified from Stockoverflow
 for (var i = 0; i < middle.length; i++) {
     middle[i].onclick = function() {
     	//open/close selected category
@@ -175,20 +150,16 @@ for (var i = 0; i < middle.length; i++) {
             		var children = middle[k].children;
             		setClass(children,"hide", "remove");
             	};
-            }
+            };
         };
     };
 };
 
 
-
-
-
-
+//Random number of displayed kwics per category
 for (i = 0; i < middle.length; i++) {
-	//Random number of displayed kwics per category
 	var rndm = Math.floor(getRandomArbitrary(3,7));
-	
+
 	var pre = middle[i].getElementsByClassName("divLeft")[0].getElementsByTagName("P");
 	var post = middle[i].getElementsByClassName("divRight")[0].getElementsByTagName("P");
 
@@ -200,12 +171,27 @@ for (i = 0; i < middle.length; i++) {
 			keyw.push(allPs[j]);
 		}
 	}
-
 	for (j=rndm; j < keyw.length; j++) {
 		pre[j].style.display = "none";
 		keyw[j].style.display = "none";
 		post[j].style.display = "none";
 	}
 };
+
+
+//every category different color hue
+var hues = ["#ff0066", "#ff3385", "#ff66a3", "#ff99c2"]; //hues of color #ff0066
+for (var c = 0; c < middle.length; c++) {
+	var rndm = Math.floor(getRandomArbitrary(0,hues.length));
+	var titles = middle[c].getElementsByTagName("P");
+	for (var i = 0; i < titles.length; i++) {
+		if (titles[i].parentElement.className == "divMiddle") {
+			titles[i].style.color = hues[rndm];
+		}
+	}
+}
+
+
+
 
 

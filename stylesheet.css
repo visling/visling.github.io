@@ -21,6 +21,7 @@ h1 {
 	color: white;
 	background-color: #3d3d5c;
 	position:relative;
+	font-size: 20px;
 }
 
 img {
@@ -65,23 +66,26 @@ div.divMiddle {
 }
 
 div.divMiddle.active{
-	background-color: #ff0066;
+	/*background-color: #ff0066;*/
 	transition:0.4s;
+	text-transform: uppercase;
 
 }
 
 div.divMiddle:hover > p{
-	color: white;
-	background-color: #ff0066;
+	/*color: white;*/
+	/*background-color: #ff0066;*/
 }
 
 div.divMiddle.active > p {
 	color:white;
-	background-color: #ff0066;
+	/*background-color: #ff0066;*/
+
 }
 
 div.divMiddle:hover {
-	background-color:#ff0066;
+	/*background-color:#ff0066;*/
+	outline-color: white;
 }
 
 div.divMiddle > p {
