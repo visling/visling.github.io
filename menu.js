@@ -42,6 +42,7 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	divleft.className = "divLeft";
 	var divmiddle = document.createElement("div");
 	divmiddle.className = "divMiddle";
+	divmiddle.id = toFind;
 	var divright = document.createElement("div");
 	divright.className = "divRight";
 
@@ -110,6 +111,7 @@ function setClass(els, className, fnName) {
     };
 };
 
+
 //Fetch all categories and produce KWIC
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
@@ -118,10 +120,6 @@ for (var i = 0; i < children.length; i++) {
 	var finds = findOccur(toSearchIn,toFind);
 	createKWICDiv(toSearchIn,finds,toFind);
 }
-
-//For actions on div with class "divMiddle"
-var middle = document.getElementsByClassName("divMiddle");
-var i;
 
 
 
@@ -132,6 +130,8 @@ var panel = document.getElementsByClassName("panel");
 //copied and modified from Stockoverflow
 for (var i = 0; i < middle.length; i++) {
     middle[i].onclick = function() {
+    	var rect = this.parentElement.getBoundingClientRect()
+    	window.scrollTo(rect.left, rect.top);
     	//open/close selected category
         var setClasses = !this.classList.contains('active');
         setClass(middle, 'active', 'remove');
@@ -180,9 +180,7 @@ for (i = 0; i < middle.length; i++) {
 
 
 //every category different color hue
-var hues = ["#66b3ff","#ff66a3","#ffa439","#36b083"]; //hues of color #ff0066
 var hues = ["#ff0066","#ffa439"];
-// var hues = ["#FF6F00", "#FFCAA1", "#AA6A39", "#7C5F48"];
 var hue = "";
 for (var c = 0; c < middle.length; c++) {
 	var rndm = Math.floor(getRandomArbitrary(0,hues.length));
@@ -198,8 +196,6 @@ for (var c = 0; c < middle.length; c++) {
 		}
 	}
 }
-
-
 
 
 
