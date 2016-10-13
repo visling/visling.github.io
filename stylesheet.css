@@ -175,6 +175,7 @@ div.divLeft > p {
 
 	div.panel, div.divMaster{
 		margin-left: 0;
+		margin-right: 0;
 	}
 
 }
