@@ -174,8 +174,10 @@ div.divLeft > p {
 	}
 
 	div.panel, div.divMaster{
-		margin-left: 0;
-		margin-right: 0;
+		margin: 0 auto;
+	}
+	body {
+		padding-right: 2px;
 	}
 
 }
