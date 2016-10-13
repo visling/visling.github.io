@@ -161,7 +161,7 @@ div.divLeft > p {
 	    position: fixed;
 	    bottom: 5px; 
 	    width: 93%;
-	    height: 60px; 
+	    height: 14%; 
 	    border: 3px solid white; 
 		/*background-color: #46466d;*/
 		/*opacity: 0.5; */
@@ -170,11 +170,14 @@ div.divLeft > p {
 		overflow: auto;
 	}
 	#links {
-		font-size: 10px;
+		font-size: 12px;
 	}
 
 	div.panel, div.divMaster{
-		margin: 0 auto;
+		margin: 0 auto; 
+	}
+	div.panel.show {
+		max-height: 30%;
 	}
 	body {
 		padding-right: 2px;
