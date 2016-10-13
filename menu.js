@@ -131,35 +131,6 @@ for (var i = 0; i < children.length; i++) {
 var middle = document.getElementsByClassName("divMiddle");
 var panel = document.getElementsByClassName("panel");
 
-//Accordion effect
-//copied and modified from Stockoverflow
-for (var i = 0; i < middle.length; i++) {
-    middle[i].onclick = function() {
-    	var rect = this.parentElement.getBoundingClientRect()
-    	window.scrollTo(rect.left, rect.top);
-    	//open/close selected category
-        var setClasses = !this.classList.contains('active');
-        setClass(middle, 'active', 'remove');
-        setClass(panel, 'show', 'remove');
-
-        for (var j = 1; j < this.children.length; j++) {
-        	this.children[j].classList.toggle("hide");
-       	};
-
-        //reset all other
-        if (setClasses) {
-            this.classList.toggle("active");
-            this.parentElement.nextElementSibling.classList.toggle("show");
-            
-            for (var k = 0; k < middle.length; k++) {
-            	if (middle[k] != this) {
-            		var children = middle[k].children;
-            		setClass(children,"hide", "remove");
-            	};
-            };
-        };
-    };
-};
 
 
 //Random number of displayed kwics per category
@@ -202,6 +173,36 @@ for (var c = 0; c < middle.length; c++) {
 		}
 	}
 }
+
+//Accordion effect
+//copied and modified from Stockoverflow
+for (var i = 0; i < middle.length; i++) {
+    middle[i].onclick = function() {
+    	var rect = this.parentElement.getBoundingClientRect()
+    	window.scrollTo(rect.left, rect.top);
+    	//open/close selected category
+        var setClasses = !this.classList.contains('active');
+        setClass(middle, 'active', 'remove');
+        setClass(panel, 'show', 'remove');
+
+        for (var j = 1; j < this.children.length; j++) {
+        	this.children[j].classList.toggle("hide");
+       	};
+
+        //reset all other
+        if (setClasses) {
+            this.classList.toggle("active");
+            this.parentElement.nextElementSibling.classList.toggle("show");
+            
+            for (var k = 0; k < middle.length; k++) {
+            	if (middle[k] != this) {
+            		var children = middle[k].children;
+            		setClass(children,"hide", "remove");
+            	};
+            };
+        };
+    };
+};
 
 
 
