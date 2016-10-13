@@ -6,16 +6,6 @@ body {
 	margin: 15px;
 	border: 20px;
 }
-/*button.homeButton {
-	margin-left: 80px;
-	margin-top: 40px;
-}
-
-h1 {
-    color: #0000e6;
-    margin-left: 80px;
-    margin-top: 70px;
-} */
 
 * {
 	font-family: "Open sans", sans-serif;
@@ -31,6 +21,7 @@ h1 {
 
 body {
 	margin-bottom: 500px;
+	padding-right: 20px;
 }
 
 img {
@@ -42,7 +33,8 @@ p.dots {
 }
 
 div.panel {
-	padding: 0 18px;
+	/*padding: 0 18px;*/
+	padding-left: 5px;
     background-color: #46466d;
     /*background-color: #ffffff;*/
     max-height: 0;
@@ -50,7 +42,8 @@ div.panel {
     transition: 0.3s ease-in-out;
     opacity: 0;
     width: 80%;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-left: 17%;
 }
 
 div.panel > * {
@@ -59,6 +52,7 @@ div.panel > * {
 
 div.panel.show  {
 	opacity: 1;
+	max-width: 120vh;
 	max-height: 80vh;
 	transition:0.4s;
 	overflow: auto;
@@ -68,6 +62,7 @@ div.divMaster {
 	display: flex;
 	justify-content: center;
 	overflow:hidden;
+	margin-left: 10%;
 }
 
 div.divMiddle {
@@ -99,7 +94,6 @@ div.divMiddle.active > p {
 
 div.divMiddle:hover {
 	background-color:#46466d;
-	outline-color: white;
 }
 
 div.divMiddle > p {
@@ -141,6 +135,52 @@ div.divLeft > p {
 .hide {
 	display:none;
 }
+
+
+@media only screen and (min-device-width: 700px) {
+	div#links {
+	    position: fixed;
+	    top: 5px; 
+	    left: 7px; 
+	    width: 10%;
+	    height: 300px; 
+	    border: 3px solid white; 
+		/*background-color: #46466d;*/
+		/*opacity: 0.5; */
+		z-index:1000;
+		padding: 0px 2px 0px 3px;
+	}
+	a#links {
+		font-size: 13px;
+		/*background-color: #46466d;*/
+		opacity: 1
+	}
+	a:hover {
+		color: #ff0066
+	}
+}
+
+@media only screen and (max-device-width: 700px) {
+	div#links {
+	    position: fixed;
+	    bottom: 5px; 
+	    width: 93%;
+	    height: 60px; 
+	    border: 3px solid white; 
+		/*background-color: #46466d;*/
+		/*opacity: 0.5; */
+		z-index:1000;
+		padding: 0px 0px 0px 0px;
+	}
+	#links {
+		font-size: 10px;
+	}
+}
+
+
+
+
+
 
 
 

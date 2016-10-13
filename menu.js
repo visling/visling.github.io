@@ -34,7 +34,7 @@ function findOccur(toSearchIn,toFind) {
 	return finds;
 }
 
-function createKWICDiv(toSearchIn, finds,toFind) {
+function createKWICDiv(panel,toSearchIn, finds,toFind) {
 	/*Create divs for given keyword*/
 
 	//find visual linguistics
@@ -93,8 +93,9 @@ function createKWICDiv(toSearchIn, finds,toFind) {
 	// master.appendChild(divright);
 
 	// insert master div before the actual text
-	var currentPanel = document.getElementById(toFind);
-	document.body.insertBefore(master,currentPanel)
+	document.body.insertBefore(master,panel)
+
+
 }
 
 function toggleReverse(elements,className) {
@@ -112,16 +113,20 @@ function setClass(els, className, fnName) {
 };
 
 
+
+//CREATING KWIC
 //Fetch all categories and produce KWIC
 var children = document.getElementsByClassName("panel");
 for (var i = 0; i < children.length; i++) {
+	var panel = children[i];
 	var toSearchIn = children[i].textContent;
 	var toFind = children[i].id;
 	var finds = findOccur(toSearchIn,toFind);
-	createKWICDiv(toSearchIn,finds,toFind);
+	createKWICDiv(panel,toSearchIn,finds,toFind);
 }
 
 
+//STYLING
 
 var middle = document.getElementsByClassName("divMiddle");
 var panel = document.getElementsByClassName("panel");
@@ -145,6 +150,7 @@ for (var i = 0; i < middle.length; i++) {
         if (setClasses) {
             this.classList.toggle("active");
             this.parentElement.nextElementSibling.classList.toggle("show");
+            
             for (var k = 0; k < middle.length; k++) {
             	if (middle[k] != this) {
             		var children = middle[k].children;
