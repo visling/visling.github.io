@@ -149,7 +149,7 @@ div.divLeft > p {
 		padding: 0px 2px 0px 3px;
 	}
 	a#links {
-		font-size: 15px;
+		font-size: 16px;
 	}
 	a:hover {
 		color: #ff0066
@@ -170,7 +170,7 @@ div.divLeft > p {
 		overflow: auto;
 	}
 	#links {
-		font-size: 14px;
+		font-size: 12px;
 	}
 
 	div.panel, div.divMaster{
@@ -178,6 +178,7 @@ div.divLeft > p {
 	}
 	div.panel.show {
 		max-height: 30%;
+		transition: 0.3s ease-out;
 	}
 	body {
 		padding-right: 2px;
